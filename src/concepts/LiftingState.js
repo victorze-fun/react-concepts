@@ -55,6 +55,13 @@ const TemperatureInput = ({ value, onChange, scale }) => {
   )
 }
 
+const BoilingVerdict = ({ celsius }) => {
+  if (celsius >= 100) {
+    return <p>The water would boil.</p>
+  }
+  return <p>The water would not boil.</p>
+}
+
 const toCelsius = (fahrenheit) => {
   return (fahrenheit - 32) * 5 / 9
 }
@@ -71,11 +78,4 @@ const tryConvert = (temperature, convert) => {
   const output = convert(input)
   const rounded = Math.round(output * 1000) / 1000
   return rounded.toString()
-}
-
-const BoilingVerdict = ({ celsius }) => {
-  if (celsius >= 100) {
-    return <p>The water would boil.</p>
-  }
-  return <p>The water would not boil.</p>
 }
